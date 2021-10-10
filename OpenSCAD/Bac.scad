@@ -26,7 +26,11 @@ module bac_int(larg = 1, long = 2, haut = 3, pied = 900) {
         translate([2.5+planche[0]/2-i*(planche[0]+5), 0, 0]) cube([planche[0], larg*600-planche[1]*2, planche[1]], center=true);
     }
     
-    for (y=[50-larg*300,larg*300-50]) translate([0,y,-40]) cube([long*600,40,40], center=true);
+// Barres de soutient
+    for (y=[50-larg*300,larg*300-50]) translate([0,y,-40]) cube([long*600,40,40], center=true);        
 }
 
+// Démo de 3 bacs 
 for (y=[-1:1]) translate([0,y*800,0]) bac_int(larg=1, long=y+2);
+
+translate([1500,-250,0]) rotate([0,0,60]) bac_int(larg=2, long=2);
